@@ -1,0 +1,106 @@
+<!-- Namaste React:
+
+Video 1:
+
+Tips: 
+1. Make Notes
+2. Use Laptop
+3. Maintain a GitHub Repo(assignment, puzzle, etc)
+-->
+
+
+<!-- ***Episode 1 - Part 1***  -->
+
+
+
+<!-- VS Code uses *Emmet*:
+    Emmet: generates some code for inside VS code
+    hmtl:5 -> gives basic html skeleton
+  -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./index.css" />
+    <title>Namaste React</title>
+</head>
+
+<body>
+    <!-- using HTML -->
+    <!-- <div id="root">
+        <h1>Hello World!</h1>
+    </div> -->
+
+
+    <!-- now using JavaScript to do same -->
+    <!-- <div id="root"></div>
+    <script>
+        const heading = document.createElement("h1");
+        heading.innerHTML = "Hello World from JavaScript!";
+        
+        const root = document.getElementById("root");
+        root.appendChild(heading);
+    </script> -->
+    <!-- browsers have these speical JS engines in it, which executes "createElement, innerHTMl, etc" -->
+
+    <!-- browsers doesn't understand react 
+    so first get react into project via "cdn react"
+    react library is hosted at "CDN links" and we r pulling react from there into our project
+    so we included script tags just before body ends
+    Now our project has superpower of react inside it 
+    also browsers will understand react now
+    -->
+
+    <!-- H.w:
+    1. CDN
+    2. Crossorigin
+    -->
+
+
+
+
+    <!-- ***Episode 1 - Part 2***  -->
+
+    <!-- using React -->
+    <!-- <div id="root"></div>
+
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <script>
+        // diff api than JS
+        const heading = React.createElement("h1", {}, "Hello World from React!"); // comes from first Lib
+        // then put it in root 
+        // by telling what's root 
+
+        const root = ReactDOM.createRoot(document.getElementById("root"));  //comes from 2nd Lib
+
+        root.render(heading);
+    </script> -->
+
+
+    <!-- ***Episode 1 - Part 3***  -->
+    <!-- let's create a new JS file to write in all the react code , not in scripts 
+    go to App.js
+    & inject it to script, keeping everything else same 
+-->
+    <h1>
+        On Top of Root
+    </h1>
+    <div id="root">
+        <h1>Neha is already here</h1>
+    </div>
+    <h1>
+        Below Root
+    </h1>
+
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="./App.js"></script>
+
+</body>
+
+</html>
