@@ -47,29 +47,30 @@
 // convert 3rd argument of chilren to an array
 
 // we can have multiple children too via an array
-const parent = React.createElement(
-    "div",
-    { id: "parent" },
-    [React.createElement("div", { id: "child" }, [
-        React.createElement("h1", {}, "I'm h1 tag"),
-        React.createElement("h2", {}, "I'm h2 tag"),
-    ]),
-    React.createElement("div", { id: "child2" }, [
-        React.createElement("h1", {}, "I'm h1 tag"),
-        React.createElement("h2", {}, "I'm h2 tag"),
-    ]),
-]);
-// but now the code looks so ugly & messy
-// it was just to tell & show that this is core of react 
-// & react isn't only be written with JSX
-// JSX makes it so easy when we have to create tags
-// Bye Bye React.createElement
-// so we will use *JSX* in next episode 
+
+// const parent = React.createElement(
+//     "div",
+//     { id: "parent" },
+//     [React.createElement("div", { id: "child" }, [
+//         React.createElement("h1", {}, "I'm h1 tag"),
+//         React.createElement("h2", {}, "I'm h2 tag"),
+//     ]),
+//     React.createElement("div", { id: "child2" }, [
+//         React.createElement("h1", {}, "I'm h1 tag"),
+//         React.createElement("h2", {}, "I'm h2 tag"),
+//     ]),
+// ]);
+// // but now the code looks so ugly & messy
+// // it was just to tell & show that this is core of react 
+// // & react isn't only be written with JSX
+// // JSX makes it so easy when we have to create tags
+// // Bye Bye React.createElement
+// // so we will use *JSX* in next episode 
 
 
-console.log(parent);
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(parent);
+// console.log(parent);
+// const root = ReactDOM.createRoot(document.getElementById("root"));
+// root.render(parent);
 
 
 
@@ -97,3 +98,36 @@ root.render(parent);
 // react can work independently in a small portion of ur app as well
 // react is a piece of JS code
 // framework comes with all loads of things
+
+
+
+
+
+
+
+// ***Episode 4 - Part 2***  
+
+import React from "react"; //coming from react modules
+// import ReactDOM from "react-dom";
+import ReactDOM from "react-dom/client"; // to remove warning 
+// but these imports are not normal JS
+// so we need to tell that it isn't a normal JS file , but a module , write in index.html script
+
+// now as soon as we save the file , our browser also automatically refresh
+
+const parent = React.createElement(
+    "div",
+    { id: "parent" },
+    [React.createElement("div", { id: "child" }, [
+        React.createElement("h1", {}, "Neha in this tag"),
+        React.createElement("h2", {}, "I'm h2 tag"),
+    ]),
+    React.createElement("div", { id: "child2" }, [
+        React.createElement("h1", {}, "I'm h1 tag"),
+        React.createElement("h2", {}, "I'm h2 tag"),
+    ]),
+]);
+
+console.log(parent);
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(parent);
