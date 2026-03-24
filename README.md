@@ -21,3 +21,13 @@
 - HTTPs
 - Tree Shaking - remove unused code
 - Different build for dev & prod bundles
+
+
+# Food Ordering App
+File Structure
+
+
+
+# 2 Type of exports
+- default-single export, import simple
+- named-multiple export, import with {}
