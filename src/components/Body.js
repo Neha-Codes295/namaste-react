@@ -1,129 +1,97 @@
 import RestaurantCard from "./RestaurantCard";
-import { useState } from "react";
-import resJson from "../utils.js/mockData"
-
-// // but hard-coded data ko hum comp file mei nhi rkhenege, so putted in utils
-// // const resJson = {
-// //     "statusCode": 0, "data": { "statusMessage": "done successfully", "pageOffset": { "nextOffset": "CLpmEOskKIC4+pmqkbr5czC7EDgC", "widgetOffset": { "restaurantCountWidget": "", "inlineFacetFilter": "", "collectionV5RestaurantListWidget_SimRestoRelevance_food": "10", "collectionV5MastheadWidget": "" } }, "cards": [{ "card": { "card": { "@type": "type.googleapis.com/swiggy.gandalf.widgets.v2.CollectionMasthead", "collectionId": "83661", "title": "Desserts", "description": "Feast on amazing desserts to satisfy your sweet tooth.", "imageId": "COLLECTIONS/IMAGES/MERCH/2024/8/20/05c15369-c8fc-4d35-a823-706bd8b8ce1c_desserts (1).png", "aspectRatio": "3.44", "cta": { "link": "swiggy://collectionV2?collection_id=83661&tags=layout_CCS_Dessert,dessert", "type": "collectionv2" }, "type": "COLLECTION_MASTHEAD_TYPE_IMAGE_WITH_TEXT", "count": "130 restaurants", "navBarConfig": {} } } }, { "card": { "card": { "@type": "type.googleapis.com/swiggy.gandalf.widgets.v2.InlineViewFilterSortWidget", "sortConfigs": [{ "key": "relevance", "title": "Relevance (Default)", "selected": true, "defaultSelection": true }, { "key": "deliveryTimeAsc", "title": "Delivery Time" }, { "key": "modelBasedRatingDesc", "title": "Rating" }, { "key": "costForTwoAsc", "title": "Cost: Low to High" }, { "key": "costForTwoDesc", "title": "Cost: High to Low" }], "restaurantCount": 130, "facetList": [{ "label": "10 Mins Delivery", "id": "isRestaurantBolt", "selection": "SELECT_TYPE_SINGLESELECT", "facetInfo": [{ "label": "10 Mins Delivery", "id": "isRestaurantBoltfacetquery0", "analytics": {}, "openFilter": true }], "viewType": "VIEW_TYPE_FLATTENED", "subLabel": "Filter by", "icon": "COLLECTIONS/IMAGES/MERCH/2024/12/18/4b2e8903-0e25-401b-8ede-088491b4cfa0_937977a3-b03b-4a9e-8b6a-24937664d1a9_pic.png", "selectedIcon": "COLLECTIONS/IMAGES/MERCH/2024/12/26/3072d307-2f8e-471c-862d-d426fb93c0bf_4b2e8903-0e25-401b-8ede-088491b4cfa0_937977a3-b03b-4a9e-8b6a-24937664d1a9_pic.png" }, { "label": "Veg/Non-Veg", "id": "isVeg", "selection": "SELECT_TYPE_MULTISELECT", "facetInfo": [{ "label": "Non Veg", "id": "isVegfacetquery0", "analytics": {}, "openFilter": true }, { "label": "Pure Veg", "id": "isVegfacetquery1", "analytics": {}, "openFilter": true }], "viewType": "VIEW_TYPE_HALF_CARD", "subLabel": "Filter by", "openFilter": true }, { "label": "Ratings", "id": "rating", "selection": "SELECT_TYPE_MULTISELECT", "facetInfo": [{ "label": "Ratings", "id": "ratingfacetquery0", "analytics": {}, "openFilter": true }, { "label": "Ratings 4.0+", "id": "ratingfacetquery1", "analytics": {}, "openFilter": true }, { "label": "Ratings 4.5+", "id": "ratingfacetquery2", "analytics": {}, "openFilter": true }], "viewType": "VIEW_TYPE_HALF_CARD", "subLabel": "Filter by", "openFilter": true }, { "label": "Delivery Time", "id": "deliveryTime", "selection": "SELECT_TYPE_MULTISELECT", "facetInfo": [{ "label": "Less than 30 mins", "id": "deliveryTimefacetquery0", "analytics": {}, "openFilter": true }, { "label": "Less than 45 mins", "id": "deliveryTimefacetquery1", "analytics": {}, "openFilter": true }], "viewType": "VIEW_TYPE_HALF_CARD", "subLabel": "Filter by", "openFilter": true }, { "label": "Cost For Two", "id": "costForTwo", "selection": "SELECT_TYPE_MULTISELECT", "facetInfo": [{ "label": "Less than Rs. 300", "id": "costForTwofacetquery0", "analytics": {}, "openFilter": true }, { "label": "Rs.300 - Rs.600", "id": "costForTwofacetquery1", "analytics": {}, "openFilter": true }, { "label": "Greater than Rs. 600", "id": "costForTwofacetquery2", "analytics": {}, "openFilter": true }], "viewType": "VIEW_TYPE_HALF_CARD", "subLabel": "Filter by", "openFilter": true }], "widgetId": "inlineFacetFilter" } } }, { "card": { "card": { "@type": "type.googleapis.com/swiggy.gandalf.widgets.v2.GridWidget", "layout": { "rows": 1, "widgetPadding": { "left": 16, "top": 12, "right": 16 }, "widgetTheme": { "defaultMode": { "backgroundColour": "#FFFFFF", "theme": "THEME_TYPE_LIGHT" }, "darkMode": { "backgroundColour": "#1B3028", "theme": "THEME_TYPE_DARK" } } }, "id": "restaurantCountWidget", "gridElements": { "infoWithStyle": { "@type": "type.googleapis.com/swiggy.gandalf.widgets.v2.TextBoxV2", "text": "130 Restaurants to explore", "headerStyling": { "textSize": 15, "textColor": "text_color_highest_emphasis", "textFontName": "FONT_NAME_HEADER_H5", "maxLines": 1 } } } } } }, { "card": { "card": { "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant", "info": { "id": "40757", "name": "New Panna Sweets", "cloudinaryImageId": "upm1vaopvuy5zhzhtkbq", "locality": "Manimajra", "areaName": "Manimajra", "costForTwo": "₹200 for two", "cuisines": ["Sweets", "South Indian", "Chinese", "Bakery", "Chaat", "Fast Food", "Beverages", "Desserts", "Street Food"], "avgRating": 4.4, "veg": true, "parentId": "147447", "avgRatingString": "4.4", "totalRatingsString": "83K+", "promoted": true, "adTrackingId": "cid=b3945416-4d17-4897-9e31-673b7d542a86~p=0~adgrpid=b3945416-4d17-4897-9e31-673b7d542a86#ag1~mp=SWIGGY_IN~bl=FOOD~aet=RESTAURANT~aeid=40757~plpr=COLLECTION~eid=ff4c9541-b349-4a3e-a8c4-3703e6eed1f1~srvts=1774168072197~collid=83661", "sla": { "deliveryTime": 34, "lastMileTravel": 3, "serviceability": "SERVICEABLE", "slaString": "30-35 mins", "lastMileTravelString": "3.0 km", "iconType": "ICON_TYPE_EMPTY" }, "availability": { "nextCloseTime": "2026-03-22 23:15:00", "opened": true }, "badges": {}, "isOpen": true, "type": "F", "badgesV2": { "entityBadges": { "textExtendedBadges": {}, "textBased": {}, "imageBased": {} } }, "aggregatedDiscountInfoV3": { "header": "70% OFF", "subHeader": "UPTO ₹140", "logoCtx": { "text": "BENEFITS" } }, "orderabilityCommunication": { "title": {}, "subTitle": {}, "message": {}, "customIcon": {}, "commsStyling": {} }, "differentiatedUi": { "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT", "differentiatedUiMediaDetails": { "mediaType": "ADS_MEDIA_ENUM_IMAGE", "lottie": {}, "video": {} } }, "reviewsSummary": {}, "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT", "restaurantOfferPresentationInfo": {}, "externalRatings": { "aggregatedRating": { "rating": "3.8", "ratingCount": "943" }, "source": "GOOGLE", "sourceIconImageId": "v1704440323/google_ratings/rating_google_tag" }, "ratingsDisplayPreference": "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY", "campaignId": "b3945416-4d17-4897-9e31-673b7d542a86" }, "analytics": {}, "cta": { "link": "swiggy://menu?restaurant_id=40757&source=collection&query=Dessert", "text": "RESTAURANT_MENU", "type": "DEEPLINK" }, "widgetId": "collectionV5RestaurantListWidget_SimRestoRelevance_food" }, "relevance": { "type": "RELEVANCE_TYPE_ON_MENU_RETURN", "sectionId": "MENU_RETURN_FOOD" } } }, { "card": { "card": { "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant", "info": { "id": "407830", "name": "The Belgian Waffle Co.", "cloudinaryImageId": "RX_THUMBNAIL/IMAGES/VENDOR/2025/1/17/e3c84a17-f192-4fad-8f07-796851ff8eaa_407830.JPG", "locality": "SECTOR-9", "areaName": "Panchkula", "costForTwo": "₹200 for two", "cuisines": ["Waffle", "Desserts", "Ice Cream", "Beverages"], "avgRating": 4.5, "veg": true, "parentId": "2233", "avgRatingString": "4.5", "totalRatingsString": "2.3K+", "sla": { "deliveryTime": 25, "lastMileTravel": 0.8, "serviceability": "SERVICEABLE", "slaString": "20-25 mins", "lastMileTravelString": "0.8 km", "iconType": "ICON_TYPE_EMPTY" }, "availability": { "nextCloseTime": "2026-03-23 02:00:00", "opened": true }, "badges": { "imageBadges": [{ "imageId": "android/static-assets/icons/big_rx.png", "description": "bolt!" }, { "imageId": "v1695133679/badges/Pure_Veg111.png", "description": "pureveg" }] }, "isOpen": true, "aggregatedDiscountInfoV2": {}, "type": "F", "badgesV2": { "entityBadges": { "textBased": {}, "imageBased": { "badgeObject": [{ "attributes": { "description": "bolt!", "imageId": "android/static-assets/icons/big_rx.png" } }, { "attributes": { "imageId": "v1695133679/badges/Pure_Veg111.png", "description": "pureveg" } }] }, "textExtendedBadges": {} } }, "orderabilityCommunication": { "title": {}, "subTitle": {}, "message": {}, "customIcon": {}, "commsStyling": {} }, "differentiatedUi": { "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT", "differentiatedUiMediaDetails": { "mediaType": "ADS_MEDIA_ENUM_IMAGE", "lottie": {}, "video": {} } }, "reviewsSummary": {}, "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT", "restaurantOfferPresentationInfo": {}, "externalRatings": { "aggregatedRating": { "rating": "--" } }, "ratingsDisplayPreference": "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY" }, "analytics": {}, "cta": { "link": "swiggy://menu?restaurant_id=407830&source=collection&query=Dessert", "text": "RESTAURANT_MENU", "type": "DEEPLINK" }, "widgetId": "collectionV5RestaurantListWidget_SimRestoRelevance_food" }, "relevance": { "type": "RELEVANCE_TYPE_ON_MENU_RETURN", "sectionId": "MENU_RETURN_FOOD" } } }, { "card": { "card": { "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant", "info": { "id": "1003835", "name": "Bakingo", "cloudinaryImageId": "RX_THUMBNAIL/IMAGES/VENDOR/2026/3/18/3a431caf-ac95-4962-a916-494a114c6749_1003835.JPG", "locality": "Zirakpur", "areaName": "Muchalla", "costForTwo": "₹299 for two", "cuisines": ["Bakery", "Desserts", "Beverages", "Snacks"], "avgRating": 4.6, "parentId": "3818", "avgRatingString": "4.6", "totalRatingsString": "1.2K+", "promoted": true, "adTrackingId": "cid=95b84150-78da-4af1-a902-52d8e37fec8b~p=3~adgrpid=95b84150-78da-4af1-a902-52d8e37fec8b#ag13~mp=SWIGGY_IN~bl=FOOD~aet=RESTAURANT~aeid=1003835~plpr=COLLECTION~eid=e7442dc3-10af-484a-bd9d-545e766ee76c~srvts=1774168072197~collid=83661", "sla": { "deliveryTime": 29, "lastMileTravel": 5, "serviceability": "SERVICEABLE", "slaString": "25-30 mins", "lastMileTravelString": "5.0 km", "iconType": "ICON_TYPE_EMPTY" }, "availability": { "nextCloseTime": "2026-03-23 00:00:00", "opened": true }, "badges": { "imageBadges": [{ "imageId": "Rxawards/_CATEGORY-Desserts.png", "description": "Delivery!" }] }, "isOpen": true, "type": "F", "badgesV2": { "entityBadges": { "textBased": {}, "imageBased": { "badgeObject": [{ "attributes": { "imageId": "Rxawards/_CATEGORY-Desserts.png", "description": "Delivery!" } }] }, "textExtendedBadges": {} } }, "aggregatedDiscountInfoV3": { "header": "60% OFF", "subHeader": "UPTO ₹110", "logoCtx": { "text": "BENEFITS" } }, "orderabilityCommunication": { "title": {}, "subTitle": {}, "message": {}, "customIcon": {}, "commsStyling": {} }, "differentiatedUi": { "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT", "differentiatedUiMediaDetails": { "mediaType": "ADS_MEDIA_ENUM_IMAGE", "lottie": {}, "video": {} } }, "reviewsSummary": {}, "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT", "restaurantOfferPresentationInfo": {}, "externalRatings": { "aggregatedRating": { "rating": "--" } }, "ratingsDisplayPreference": "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY", "campaignId": "95b84150-78da-4af1-a902-52d8e37fec8b" }, "analytics": {}, "cta": { "link": "swiggy://menu?restaurant_id=1003835&source=collection&query=Dessert", "text": "RESTAURANT_MENU", "type": "DEEPLINK" }, "widgetId": "collectionV5RestaurantListWidget_SimRestoRelevance_food" }, "relevance": { "type": "RELEVANCE_TYPE_ON_MENU_RETURN", "sectionId": "MENU_RETURN_FOOD" } } }, { "card": { "card": { "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant", "info": { "id": "711000", "name": "Cheesecake & co.", "cloudinaryImageId": "b318c0b4bc2169550145ace1d6e791a2", "locality": "Indl Area", "areaName": "Indl Area", "costForTwo": "₹500 for two", "cuisines": ["Bakery", "Desserts"], "avgRating": 4.7, "veg": true, "parentId": "387417", "avgRatingString": "4.7", "totalRatingsString": "841", "sla": { "deliveryTime": 35, "lastMileTravel": 7.4, "serviceability": "SERVICEABLE", "slaString": "35-40 mins", "lastMileTravelString": "7.4 km", "iconType": "ICON_TYPE_EMPTY" }, "availability": { "nextCloseTime": "2026-03-23 00:00:00", "opened": true }, "badges": { "imageBadges": [{ "imageId": "newg.png", "description": "Gourmet" }] }, "isOpen": true, "type": "F", "badgesV2": { "entityBadges": { "textBased": {}, "imageBased": { "badgeObject": [{ "attributes": { "imageId": "newg.png", "description": "Gourmet" } }] }, "textExtendedBadges": {} } }, "aggregatedDiscountInfoV3": { "header": "50% OFF", "subHeader": "UPTO ₹100", "logoCtx": { "text": "BENEFITS" } }, "orderabilityCommunication": { "title": {}, "subTitle": {}, "message": {}, "customIcon": {}, "commsStyling": {} }, "differentiatedUi": { "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT", "differentiatedUiMediaDetails": { "mediaType": "ADS_MEDIA_ENUM_IMAGE", "lottie": {}, "video": {} } }, "reviewsSummary": {}, "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT", "restaurantOfferPresentationInfo": {}, "externalRatings": { "aggregatedRating": { "rating": "--" } }, "ratingsDisplayPreference": "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY" }, "analytics": {}, "cta": { "link": "swiggy://menu?restaurant_id=711000&source=collection&query=Dessert", "text": "RESTAURANT_MENU", "type": "DEEPLINK" }, "widgetId": "collectionV5RestaurantListWidget_SimRestoRelevance_food" }, "relevance": { "type": "RELEVANCE_TYPE_ON_MENU_RETURN", "sectionId": "MENU_RETURN_FOOD" } } }, { "card": { "card": { "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant", "info": { "id": "350219", "name": "NIC Ice Creams", "cloudinaryImageId": "RX_THUMBNAIL/IMAGES/VENDOR/2026/2/4/6bd25e69-3be7-46ea-8607-19e85df628fa_350219.JPG", "locality": "Sector-6", "areaName": "Panchkula", "costForTwo": "₹120 for two", "cuisines": ["Ice Cream", "Desserts"], "avgRating": 4.8, "veg": true, "parentId": "6249", "avgRatingString": "4.8", "totalRatingsString": "4.7K+", "promoted": true, "adTrackingId": "cid=47b9d757-eab8-4cd9-b9ea-5eec78799c54~p=7~adgrpid=47b9d757-eab8-4cd9-b9ea-5eec78799c54#ag10~mp=SWIGGY_IN~bl=FOOD~aet=RESTAURANT~aeid=350219~plpr=COLLECTION~eid=2698aef7-66a1-4e42-a614-91e9a71efe3a~srvts=1774168072197~collid=83661", "sla": { "deliveryTime": 16, "lastMileTravel": 1.9, "serviceability": "SERVICEABLE", "slaString": "15-20 mins", "lastMileTravelString": "1.9 km", "iconType": "ICON_TYPE_EMPTY" }, "availability": { "nextCloseTime": "2026-03-22 23:00:00", "opened": true }, "badges": { "imageBadges": [{ "imageId": "android/static-assets/icons/big_rx.png", "description": "bolt!" }] }, "isOpen": true, "type": "F", "badgesV2": { "entityBadges": { "imageBased": { "badgeObject": [{ "attributes": { "imageId": "android/static-assets/icons/big_rx.png", "description": "bolt!" } }] }, "textExtendedBadges": {}, "textBased": {} } }, "aggregatedDiscountInfoV3": { "header": "ITEMS", "subHeader": "AT ₹42", "logoCtx": { "text": "BENEFITS" } }, "orderabilityCommunication": { "title": {}, "subTitle": {}, "message": {}, "customIcon": {}, "commsStyling": {} }, "differentiatedUi": { "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT", "differentiatedUiMediaDetails": { "mediaType": "ADS_MEDIA_ENUM_IMAGE", "lottie": {}, "video": {} } }, "reviewsSummary": {}, "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT", "restaurantOfferPresentationInfo": {}, "externalRatings": { "aggregatedRating": { "rating": "--" } }, "ratingsDisplayPreference": "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY", "campaignId": "47b9d757-eab8-4cd9-b9ea-5eec78799c54" }, "analytics": {}, "cta": { "link": "swiggy://menu?restaurant_id=350219&source=collection&query=Dessert", "text": "RESTAURANT_MENU", "type": "DEEPLINK" }, "widgetId": "collectionV5RestaurantListWidget_SimRestoRelevance_food" }, "relevance": { "type": "RELEVANCE_TYPE_ON_MENU_RETURN", "sectionId": "MENU_RETURN_FOOD" } } }, { "card": { "card": { "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant", "info": { "id": "299370", "name": "The Prashadam", "cloudinaryImageId": "RX_THUMBNAIL/IMAGES/VENDOR/2026/3/3/b00fee83-ae90-46e8-a8b9-d8e5e4f50497_299370.JPG", "locality": "Manimajra", "areaName": "Manimajra", "costForTwo": "₹250 for two", "cuisines": ["Sweets", "Indian", "Chinese", "Continental", "Snacks", "Desserts", "Beverages", "Thalis", "Fast Food", "Chaat"], "avgRating": 4.5, "veg": true, "parentId": "212768", "avgRatingString": "4.5", "totalRatingsString": "19K+", "sla": { "deliveryTime": 28, "lastMileTravel": 3, "serviceability": "SERVICEABLE", "slaString": "25-30 mins", "lastMileTravelString": "3.0 km", "iconType": "ICON_TYPE_EMPTY" }, "availability": { "nextCloseTime": "2026-03-23 00:00:00", "opened": true }, "badges": { "imageBadges": [{ "imageId": "v1695133679/badges/Pure_Veg111.png", "description": "pureveg" }] }, "isOpen": true, "type": "F", "badgesV2": { "entityBadges": { "textBased": {}, "imageBased": { "badgeObject": [{ "attributes": { "imageId": "v1695133679/badges/Pure_Veg111.png", "description": "pureveg" } }] }, "textExtendedBadges": {} } }, "aggregatedDiscountInfoV3": { "header": "70% OFF", "subHeader": "UPTO ₹140", "logoCtx": { "text": "BENEFITS" } }, "orderabilityCommunication": { "title": {}, "subTitle": {}, "message": {}, "customIcon": {}, "commsStyling": {} }, "differentiatedUi": { "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT", "differentiatedUiMediaDetails": { "mediaType": "ADS_MEDIA_ENUM_IMAGE", "lottie": {}, "video": {} } }, "reviewsSummary": {}, "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT", "restaurantOfferPresentationInfo": {}, "externalRatings": { "aggregatedRating": { "rating": "4.2", "ratingCount": "1.1K+" }, "source": "GOOGLE", "sourceIconImageId": "v1704440323/google_ratings/rating_google_tag" }, "ratingsDisplayPreference": "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY" }, "analytics": {}, "cta": { "link": "swiggy://menu?restaurant_id=299370&source=collection&query=Dessert", "text": "RESTAURANT_MENU", "type": "DEEPLINK" }, "widgetId": "collectionV5RestaurantListWidget_SimRestoRelevance_food" }, "relevance": { "type": "RELEVANCE_TYPE_ON_MENU_RETURN", "sectionId": "MENU_RETURN_FOOD" } } }, { "card": { "card": { "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant", "info": { "id": "958149", "name": "The Belgian Waffle Xpress", "cloudinaryImageId": "RX_THUMBNAIL/IMAGES/VENDOR/2025/7/4/36814bab-aac0-44c2-a729-2e2bd5dd4f34_958149.JPG", "locality": "Panchkula", "areaName": "Sector 14", "costForTwo": "₹300 for two", "cuisines": ["Waffle", "Desserts", "Beverages"], "avgRating": 4.2, "veg": true, "parentId": "22469", "avgRatingString": "4.2", "totalRatingsString": "271", "promoted": true, "adTrackingId": "cid=c634d2fa-a524-43ae-a7ab-32ff5b155bb6~p=8~adgrpid=c634d2fa-a524-43ae-a7ab-32ff5b155bb6#ag1~mp=SWIGGY_IN~bl=FOOD~aet=RESTAURANT~aeid=958149~plpr=COLLECTION~eid=75f3b32d-1678-401c-a20a-e905f110b12c~srvts=1774168072197~collid=83661", "sla": { "deliveryTime": 27, "lastMileTravel": 1.8, "serviceability": "SERVICEABLE", "slaString": "25-30 mins", "lastMileTravelString": "1.8 km", "iconType": "ICON_TYPE_EMPTY" }, "availability": { "nextCloseTime": "2026-03-23 03:00:00", "opened": true }, "badges": { "imageBadges": [{ "imageId": "android/static-assets/icons/big_rx.png", "description": "bolt!" }] }, "isOpen": true, "type": "F", "badgesV2": { "entityBadges": { "textBased": {}, "imageBased": { "badgeObject": [{ "attributes": { "description": "bolt!", "imageId": "android/static-assets/icons/big_rx.png" } }] }, "textExtendedBadges": {} } }, "aggregatedDiscountInfoV3": { "header": "60% OFF", "subHeader": "UPTO ₹120", "logoCtx": { "text": "BENEFITS" } }, "orderabilityCommunication": { "title": {}, "subTitle": {}, "message": {}, "customIcon": {}, "commsStyling": {} }, "differentiatedUi": { "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT", "differentiatedUiMediaDetails": { "mediaType": "ADS_MEDIA_ENUM_IMAGE", "lottie": {}, "video": {} } }, "reviewsSummary": {}, "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT", "restaurantOfferPresentationInfo": {}, "externalRatings": { "aggregatedRating": { "rating": "--" } }, "ratingsDisplayPreference": "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY", "campaignId": "c634d2fa-a524-43ae-a7ab-32ff5b155bb6" }, "analytics": {}, "cta": { "link": "swiggy://menu?restaurant_id=958149&source=collection&query=Dessert", "text": "RESTAURANT_MENU", "type": "DEEPLINK" }, "widgetId": "collectionV5RestaurantListWidget_SimRestoRelevance_food" }, "relevance": { "type": "RELEVANCE_TYPE_ON_MENU_RETURN", "sectionId": "MENU_RETURN_FOOD" } } }, { "card": { "card": { "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant", "info": { "id": "553446", "name": "Ram Dairy", "cloudinaryImageId": "df7ukxdja4t57rrdbixb", "locality": "Panchkula", "areaName": "Sector 21 Panchkula", "costForTwo": "₹200 for two", "cuisines": ["Sweets", "Snacks", "Indian", "Beverages", "Desserts", "Healthy Food", "Home Food"], "avgRating": 4.6, "veg": true, "parentId": "166269", "avgRatingString": "4.6", "totalRatingsString": "5.0K+", "sla": { "deliveryTime": 23, "lastMileTravel": 3, "serviceability": "SERVICEABLE", "slaString": "20-25 mins", "lastMileTravelString": "3.0 km", "iconType": "ICON_TYPE_EMPTY" }, "availability": { "nextCloseTime": "2026-03-22 21:40:00", "opened": true }, "badges": { "imageBadges": [{ "imageId": "v1695133679/badges/Pure_Veg111.png", "description": "pureveg" }] }, "isOpen": true, "type": "F", "badgesV2": { "entityBadges": { "textBased": {}, "imageBased": { "badgeObject": [{ "attributes": { "imageId": "v1695133679/badges/Pure_Veg111.png", "description": "pureveg" } }] }, "textExtendedBadges": {} } }, "aggregatedDiscountInfoV3": { "header": "₹550 OFF", "subHeader": "ABOVE ₹2499", "discountTag": "FLAT DEAL", "logoCtx": { "text": "BENEFITS" } }, "orderabilityCommunication": { "title": {}, "subTitle": {}, "message": {}, "customIcon": {}, "commsStyling": {} }, "differentiatedUi": { "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT", "differentiatedUiMediaDetails": { "mediaType": "ADS_MEDIA_ENUM_IMAGE", "lottie": {}, "video": {} } }, "reviewsSummary": {}, "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT", "restaurantOfferPresentationInfo": {}, "externalRatings": { "aggregatedRating": { "rating": "--" } }, "ratingsDisplayPreference": "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY" }, "analytics": {}, "cta": { "link": "swiggy://menu?restaurant_id=553446&source=collection&query=Dessert", "text": "RESTAURANT_MENU", "type": "DEEPLINK" }, "widgetId": "collectionV5RestaurantListWidget_SimRestoRelevance_food" }, "relevance": { "type": "RELEVANCE_TYPE_ON_MENU_RETURN", "sectionId": "MENU_RETURN_FOOD" } } }, { "card": { "card": { "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant", "info": { "id": "856752", "name": "Captain Sam's Pizza", "cloudinaryImageId": "dd99a006af6c771c04af5d63d972588a", "locality": "Sector 5", "areaName": "Sector 5, MDC", "costForTwo": "₹300 for two", "cuisines": ["Pizzas", "Italian", "American", "Fast Food", "Pastas", "Sweets", "Desserts", "Beverages"], "avgRating": 3.8, "veg": true, "parentId": "382786", "avgRatingString": "3.8", "totalRatingsString": "2.1K+", "promoted": true, "adTrackingId": "cid=e209854d-497c-4974-a825-06fcb0bde402~p=9~adgrpid=e209854d-497c-4974-a825-06fcb0bde402#ag1~mp=SWIGGY_IN~bl=FOOD~aet=RESTAURANT~aeid=856752~plpr=COLLECTION~eid=5a8f0de5-9cb0-4c11-a3f2-fdc79f84d954~srvts=1774168072197~collid=83661", "sla": { "deliveryTime": 30, "lastMileTravel": 3, "serviceability": "SERVICEABLE", "slaString": "30-35 mins", "lastMileTravelString": "3.0 km", "iconType": "ICON_TYPE_EMPTY" }, "availability": { "nextCloseTime": "2026-03-22 23:59:00", "opened": true }, "badges": { "imageBadges": [{ "imageId": "v1695133679/badges/Pure_Veg111.png", "description": "pureveg" }] }, "isOpen": true, "type": "F", "badgesV2": { "entityBadges": { "textBased": {}, "imageBased": { "badgeObject": [{ "attributes": { "imageId": "v1695133679/badges/Pure_Veg111.png", "description": "pureveg" } }] }, "textExtendedBadges": {} } }, "aggregatedDiscountInfoV3": { "header": "ITEMS", "subHeader": "AT ₹8", "logoCtx": { "text": "BENEFITS" } }, "orderabilityCommunication": { "title": {}, "subTitle": {}, "message": {}, "customIcon": {}, "commsStyling": {} }, "differentiatedUi": { "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT", "differentiatedUiMediaDetails": { "mediaType": "ADS_MEDIA_ENUM_IMAGE", "lottie": {}, "video": {} } }, "reviewsSummary": {}, "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT", "restaurantOfferPresentationInfo": {}, "externalRatings": { "aggregatedRating": { "rating": "--" } }, "ratingsDisplayPreference": "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY", "campaignId": "e209854d-497c-4974-a825-06fcb0bde402" }, "analytics": {}, "cta": { "link": "swiggy://menu?restaurant_id=856752&source=collection&query=Dessert", "text": "RESTAURANT_MENU", "type": "DEEPLINK" }, "widgetId": "collectionV5RestaurantListWidget_SimRestoRelevance_food" }, "relevance": { "type": "RELEVANCE_TYPE_ON_MENU_RETURN", "sectionId": "MENU_RETURN_FOOD" } } }], "firstOffsetRequest": true, "nextFetch": 3 }, "tid": "7b4b2a4b-206b-430e-b1b9-f9b77f1ec845", "sid": "qd076ccf991-eb58-46f5-bc87-abdb3237b", "deviceId": "8448cb0f-7641-159d-c6f0-677aca8e8167", "csrfToken": "D5dDdxA5ZPpU-F2qQCk1AGIVhZSf2-EzI7z2Yt9k"
-// // };
+import { useEffect, useState, useEffect } from "react";
+import Shimmer from "./Shimmer";
+// import resJson from "../utils.js/mockData"
 
 const Body = () => {
     // const resList = resJson.data.cards
     //     .filter((item) => item.card?.card?.info)
     //     .map((item) => item.card.card);
-    // // optional chaining
 
-    // let's not use mock data
+    // const [listOfRests, setListOfRests] = useState(resList); 
+    // first mock will render , then live
 
-    // const listOfRests = [
-    // use "let" as we're modigying it afterwards in onClick filter
-    // Normal Variable
-    // let listOfRests = [
-    //     {
-    //         info: {
-    //             id: "40757",
-    //             name: "New Panna Sweets",
-    //             cloudinaryImageId: "upm1vaopvuy5zhzhtkbq",
-    //             cuisines: [
-    //                 "Sweets",
-    //                 "South Indian",
-    //                 "Chinese",
-    //                 "Bakery",
-    //                 "Chaat",
-    //                 "Fast Food",
-    //                 "Beverages",
-    //                 "Desserts",
-    //                 "Street Food"
-    //             ],
-    //             avgRating: 4.4,
-    //             deliveryTime: 34,
-    //         },
-    //     },
-    //     {
-    //         info: {
-    //             id: "1003835",
-    //             name: "Bakingo",
-    //             cloudinaryImageId: "RX_THUMBNAIL/IMAGES/VENDOR/2026/3/18/3a431caf-ac95-4962-a916-494a114c6749_1003835.JPG",
-    //             cuisines: [
-    //                 "Bakery",
-    //                 "Desserts",
-    //                 "Beverages",
-    //                 "Snacks"
-    //             ],
-    //             avgRating: 4.6,
-    //             deliveryTime: 29,
-    //         },
-    //     },
-    // ];
+    // first empty then live data
+    const [listOfRests, setListOfRests] = useState([]);
+    const [filteredList, setFilteredList] = useState([]);
 
-    // ********Local State variable - Super-Powerful react variable -> react hook-> useState
-    // pass 2nd var, as set-> used to update the list
-    // const [listOfRests, setListOfRests] = useState([
-    //     {
-    //         info: {
-    //             id: "40757",
-    //             name: "New Panna Sweets",
-    //             cloudinaryImageId: "upm1vaopvuy5zhzhtkbq",
-    //             cuisines: [
-    //                 "Sweets",
-    //                 "South Indian",
-    //                 "Chinese",
-    //                 "Bakery",
-    //                 "Chaat",
-    //                 "Fast Food",
-    //                 "Beverages",
-    //                 "Desserts",
-    //                 "Street Food"
-    //             ],
-    //             avgRating: 4.4,
-    //             deliveryTime: 34,
-    //         },
-    //     },
-    //     {
-    //         info: {
-    //             id: "1003835",
-    //             name: "Bakingo",
-    //             cloudinaryImageId: "RX_THUMBNAIL/IMAGES/VENDOR/2026/3/18/3a431caf-ac95-4962-a916-494a114c6749_1003835.JPG",
-    //             cuisines: [
-    //                 "Bakery",
-    //                 "Desserts",
-    //                 "Beverages",
-    //                 "Snacks"
-    //             ],
-    //             avgRating: 4.6,
-    //             deliveryTime: 29,
-    //         },
-    //     },
-    // ]);
-    // now using mock data
-    const resList = resJson.data.cards
-        .filter((item) => item.card?.card?.info)
-        .map((item) => item.card.card);
-    // optional chaining
+    const [searchText, setSearchText] = useState("");
 
-    const [listOfRests, setListOfRests] = useState(resList);
-    // or
-    // // just like arr de-structuring 
-    // const arr = useState(resList);
-    // // const [listOfRests, setListOfRests] = arr;
-    // // or
-    // const listOfRests = arr[0];
-    // const setListOfRests = arr[1];
+    // whenever state var updates, react triggers a reconciliaton cycle(re-renders the comp)
+    console.log("body rendered");
 
-    return (
+    // console.log("body1");
+    // // when body will render, then calls the callback fxn here
+    // // we can check it in dev tools -> source by putting debugger onto the console.log line
+    // useEffect(() => {
+    //     console.log("useEffect");
+    // }, []);
+    // console.log("body2");
+    // // (body1-> body2 -> useEffect)
+
+    useEffect(() => {
+        fetchData();
+    }, []);
+
+    const fetchData = async () => {
+        const data = await fetch(
+            "https://www.swiggy.com/dapi/restaurants/list/v5?lat=30.69540&lng=76.85240&collection=83661&tags=layout_CCS_Desserts&sortBy=&filters=&type=rcv2&offset=0&page_type=null"
+        );
+        const json = await data.json();
+        console.log(json);
+
+        const restaurants = json.data.cards
+            .filter((item) => item.card?.card?.info)
+            .map((item) => item.card.card);
+        // optional chaining: good way of handling data
+
+        setListOfRests(restaurants);
+        // now let's put api data into list of rests
+
+        setFilteredList(restaurants);
+    };
+
+    // Conditional Rendering : rendering on base of condition
+    // if(listOfRests.length === 0) {
+    //     // spinner
+    //     // return <h1>Loading...</h1>
+
+    //     // shimmer
+    //     return <Shimmer/>
+    // }
+
+    // Conditional Rendering via Ternary operator
+    return listOfRests.length === 0 ? <Shimmer /> : (
         <div className="body">
-            {/* <div className="search">Search</div> */}
             <div className="filter">
+                <div className="search">
+                    <input
+                        type="text"
+                        className="search-box"
+                        value={searchText}
+                        onChange={(e) => {
+                            setSearchText(e.target.value);
+                        }}></input>
+                    {/* we need to change search state , as it is empty rn , so add onChange  */}
+                    {/* ********whenever we change local state var, react re-renders the comp */}
+                    {/* on each key entered in search bar, whole of it got re-rendered */}
+                    <button
+                        onClick={() => {
+                            // filter rest cards & update UI
+                            // searchText
+                            console.log(searchText);
+                            // input buttn isn't working rn
+
+                            const filteredRestList = listOfRests.filter((res) =>
+                                res.info.name.toLowerCase().includes(searchText.toLowerCase())
+                            );
+
+                            setFilteredList(filteredRestList);
+                        }}
+                    >Search</button>
+                </div>
                 <button className="filter-btn"
                     onClick={() => {
-                        // console.log("clicked");
-                        // write filter logic here
-
-                        // listOfRests = listOfRests.filter(
-                        //     (res) => res.info.avgRating > 4.5
-                        // );
-                        // console.log(listOfRests);
-                        // need to update UI too, useState
 
                         const filteredRests = listOfRests.filter(
                             (res) => res.info.avgRating > 4.5
@@ -137,14 +105,14 @@ const Body = () => {
                 {/* onClick attribute passed, callback fxn which will be called on click */}
             </div>
             <div className="res-container">
-                {listOfRests.map((restaurant) => (
+                {filteredList.map((restaurant) => (
                     <RestaurantCard
                         key={restaurant.info.id}
                         resData={restaurant}
                     />
                 ))}
             </div>
-        </div>
+        </div >
     )
 };
 
