@@ -1,33 +1,20 @@
 import RestaurantCard from "./RestaurantCard";
 import { useEffect, useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
-// import resJson from "../utils.js/mockData"
+import { Link } from "react-router";
 
 const Body = () => {
-    // const resList = resJson.data.cards
-    //     .filter((item) => item.card?.card?.info)
-    //     .map((item) => item.card.card);
-
-    // const [listOfRests, setListOfRests] = useState(resList); 
-    // first mock will render , then live
-
-    // first empty then live data
     const [listOfRests, setListOfRests] = useState([]);
     const [filteredList, setFilteredList] = useState([]);
-
     const [searchText, setSearchText] = useState("");
+    // always call useState hooksinside ur body of func comp*****
+    // it is used to create local state var, inside func comp
+    // call hooks on top, just create them on top, no where else
+    // dont create inside if/else/for loop/ fxn -> inconsistency
+
 
     // whenever state var updates, react triggers a reconciliaton cycle(re-renders the comp)
     console.log("body rendered");
-
-    // console.log("body1");
-    // // when body will render, then calls the callback fxn here
-    // // we can check it in dev tools -> source by putting debugger onto the console.log line
-    // useEffect(() => {
-    //     console.log("useEffect");
-    // }, []);
-    // console.log("body2");
-    // // (body1-> body2 -> useEffect)
 
     useEffect(() => {
         fetchData();
@@ -51,16 +38,6 @@ const Body = () => {
         setFilteredList(restaurants);
     };
 
-    // Conditional Rendering : rendering on base of condition
-    // if(listOfRests.length === 0) {
-    //     // spinner
-    //     // return <h1>Loading...</h1>
-
-    //     // shimmer
-    //     return <Shimmer/>
-    // }
-
-    // Conditional Rendering via Ternary operator
     return listOfRests.length === 0 ? <Shimmer /> : (
         <div className="body">
             <div className="filter">
@@ -106,10 +83,13 @@ const Body = () => {
             </div>
             <div className="res-container">
                 {filteredList.map((restaurant) => (
-                    <RestaurantCard
-                        key={restaurant.info.id}
-                        resData={restaurant}
-                    />
+                    <Link key={restaurant.info.id}
+                        to={"/restaurant/" + restaurant.info.id}
+                    >
+                        <RestaurantCard
+                            resData={restaurant}
+                        />
+                    </Link>
                 ))}
             </div>
         </div >

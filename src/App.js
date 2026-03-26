@@ -314,6 +314,11 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header"; // import -> no need of extension, keep it simple
 import Body from "./components/Body";
+import About from "./components/About";
+import Contact from "./components/Contact";
+import Error from "./components/Error";
+import RestaurantMenu from "./components/RestaurantMenu";
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router";
 
 // const Header = () => {
 //     return (
@@ -620,10 +625,57 @@ const AppLayout = () => {
     return (
         <div className="app">
             <Header />
-            <Body />
+            <Outlet />
+            {/* Outlet will be filled with the child acc to the path */}
         </div>
+        // {/* if path is "/" */}
+        // <Body />
+        // {/* if path is "/" */}
+        // <About />
+        // {/* if path is "/" */}
+        // <Contact />
+        // {/* pushing children here acc to route */}
     )
 }
 
+const appRouter = createBrowserRouter([
+    // configuration is array of list/object
+    // object
+    {
+        path: "/",
+        element: <AppLayout />,
+        children: [
+            {
+                path: "/",
+                element: <Body />,
+            },
+            {
+                path: "/about",
+                element: <About />,
+            },
+            {
+                path: "/contact",
+                element: <Contact />,
+            },
+            {
+                path: "/restaurant/:resId",
+                // resId is dynamic
+                element: <RestaurantMenu />,
+            },
+        ],
+        errorElement: <Error />,
+    },
+    // {
+    //     path: "/about",
+    //     element: <About />,
+    // },
+    // {
+    //     path: "/contact",
+    //     element: <Contact />,
+    // },
+]);
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<AppLayout />)
+// root.render(<AppLayout />)
+
+root.render(<RouterProvider router={appRouter} />)

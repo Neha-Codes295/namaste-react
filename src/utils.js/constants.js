@@ -4,3 +4,6 @@ export const LOGO_URL = "https://png.pngtree.com/png-vector/20250217/ourmid/pngt
 
 // named export: when multiple exports to be done in a single file 
 // import mei fir  use {}
+
+export const MENU_URL =
+    "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=30.69540&lng=76.85240&restaurantId=";

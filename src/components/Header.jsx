@@ -1,10 +1,26 @@
 import { LOGO_URL } from "../utils.js/constants";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { Link } from "react-router";
 
 const Header = () => {
   // let btnName = "Login";
   const [btnNameReact, setBtnNameReact] = useState("Login");
   console.log("Header rendered");
+
+  // // if no dependency array , useEffect is called on every render of the component
+  // useEffect(()=>{
+  //   console.log("useEffect called");
+  // });
+
+  // // if empty dependency array , useEffect is called on only initial render of the component(just once)
+  // useEffect(()=>{
+  //   console.log("useEffect called");
+  // }, []);
+
+  // if dependency array is [btnNameReact], useEffect is called every time btnNameReact is updated
+  useEffect(() => {
+    console.log("useEffect called");
+  }, [btnNameReact]);
 
   return (
     <div className="header">
@@ -13,10 +29,22 @@ const Header = () => {
       </div>
       <div className="nav-items">
         <ul>
-          <li>Home</li>
-          <li>About Us</li>
-          <li>Contact Us</li>
-          <li>Cart</li>
+          <li>
+            {/* <a href="/">Home</a> */}
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/about">About Us</Link>
+          </li>
+          <li>
+            <Link to="/contact">Contact Us</Link>
+          </li>
+          {/* <li>Cart</li> */}
+          {/* ******but in react, when we need to route onto other page , never use anchor tag
+          bcz the whole page got refreshed /reloaded
+          there's a magic for this:
+          use Link
+          */}
           <button
             className="login"
             onClick={() => {
