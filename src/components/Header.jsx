@@ -1,11 +1,14 @@
 import { LOGO_URL } from "../utils.js/constants";
 import { useState, useEffect } from "react";
 import { Link } from "react-router";
+import useOnlineStatus from "../utils.js/useOnlineStatus";
 
 const Header = () => {
   // let btnName = "Login";
   const [btnNameReact, setBtnNameReact] = useState("Login");
   console.log("Header rendered");
+
+  const onlineStatus = useOnlineStatus();
 
   // // if no dependency array , useEffect is called on every render of the component
   // useEffect(()=>{
@@ -30,6 +33,15 @@ const Header = () => {
       <div className="nav-items">
         <ul>
           <li>
+            <button
+              className={`px-3 py-1 rounded-md text-white font-semibold ${
+                onlineStatus ? "bg-green-500" : "bg-red-500"
+              }`}
+            >
+              {onlineStatus ? "🟢 Online" : "🔴 Offline"}
+            </button>
+          </li>
+          <li>
             {/* <a href="/">Home</a> */}
             <Link to="/">Home</Link>
           </li>
@@ -38,6 +50,9 @@ const Header = () => {
           </li>
           <li>
             <Link to="/contact">Contact Us</Link>
+          </li>
+          <li>
+            <Link to="/grocery">Grocery</Link>
           </li>
           {/* <li>Cart</li> */}
           {/* ******but in react, when we need to route onto other page , never use anchor tag

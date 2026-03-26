@@ -1,22 +1,14 @@
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
+// import { MENU_URL } from "../utils.js/constants";
 import { useParams } from "react-router";
 import Shimmer from "./Shimmer";
-import { MENU_URL } from "../utils.js/constants";
+import useRestaurantMenu from "../utils.js/useRestaurantMenu";
 
 const RestaurantMenu = () => {
     const { resId } = useParams();
-    const [resInfo, setResInfo] = useState(null);
 
-    console.log("resId:", resId);
-    useEffect(() => {
-        if (resId) fetchMenu();
-    }, [resId]);
-
-    const fetchMenu = async () => {
-        // const res = await fetch("https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=30.69540&lng=76.85240&restaurantId=794467");
-        // console.log("Hey", res.json());
-        // this api is blocked due to CORS, so not proceeding further with this 
-    };
+    const resInfo = useRestaurantMenu(resId);
+    // how to get the data is abstracted now
 
     // if (resInfo === null) return <Shimmer />;
     <h2 className="text-sm text-gray-400 mb-2">

@@ -310,7 +310,7 @@
 // Body: search, RestaurantContainer(RestaurantCard: img, name of res, star, rating, cuisine, delivery time)
 // Footer: copyright, links, address, contact
 
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header"; // import -> no need of extension, keep it simple
 import Body from "./components/Body";
@@ -319,6 +319,7 @@ import Contact from "./components/Contact";
 import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router";
+// import Grocery from "./components/Grocery";// don't do it 
 
 // const Header = () => {
 //     return (
@@ -621,6 +622,10 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router";
 
 // not using keys(not acceptable) <<<<<< index as key <<<<<<<<<<<<<<<< unique id (best practice)
 
+const Grocery = lazy(() => import("./components/Grocery"));
+// 1 liner has a lot of power to do magic
+// import via lazy fxn, which comes from react lib, it takes a callbakc fxn, the callback fxn uses import, import takes grocery comp path 
+
 const AppLayout = () => {
     return (
         <div className="app">
@@ -656,6 +661,15 @@ const appRouter = createBrowserRouter([
             {
                 path: "/contact",
                 element: <Contact />,
+            },
+            {
+                path: "/grocery",
+                element:
+                    <Suspense
+                        fallback={<h1>Loading...</h1>}>
+                        <Grocery />
+                    </Suspense>,
+                // slow 3g network pe check kro , shows loading first then grocery
             },
             {
                 path: "/restaurant/:resId",
