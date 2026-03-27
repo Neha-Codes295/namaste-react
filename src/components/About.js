@@ -1,13 +1,9 @@
-// import React from "react";
 import { Component } from "react";
-import User from "./User";
 import UserClass from "./UserClass";
 
-// class About extends React.Component {
 class About extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
-
         console.log("Parent Constructor");
     }
 
@@ -18,27 +14,25 @@ class About extends Component {
     render() {
         console.log("Parent Render");
         return (
-            <div>
-                <h1>About CLass Component</h1>
-                <h2>This is About Namaste React Learning</h2>
-                <UserClass name={"Neha in CBC"} location={"Nangal in CBC"} />
-                {/* <UserClass name={"Nina in CBC"} location={"Nangal in CBC"} />
-                <UserClass name={"Naina in CBC"} location={"Nangal in CBC"} /> */}
+            <div className="mx-auto max-w-4xl px-4 py-10 sm:px-6 lg:px-8">
+                <div className="mb-10 text-center">
+                    <p className="text-sm font-semibold uppercase tracking-wider text-orange-600">
+                        Namaste React
+                    </p>
+                    <h1 className="mt-2 text-3xl font-bold tracking-tight text-stone-900 sm:text-4xl">
+                        About this project
+                    </h1>
+                    <p className="mx-auto mt-3 max-w-2xl text-stone-600">
+                        Learning React with class components, lifecycle methods, and
+                        real GitHub profile data.
+                    </p>
+                </div>
+                <div className="rounded-2xl border border-stone-100 bg-white/80 p-6 shadow-lg ring-1 ring-orange-50 backdrop-blur-sm sm:p-8">
+                    <UserClass name={"Neha in CBC"} location={"Nangal in CBC"} />
+                </div>
             </div>
-        )
+        );
     }
 }
-
-// const About = () =>{
-//     return(
-//         <div>
-//             <h1>About Us</h1>
-//             <h2>This is About Namaste React Learning</h2>
-
-//             {/* <User name={"Neha in FC"} location={"Nangal in FC"}/> */}
-//             <UserClass name={"Neha in CBC"} location={"Nangal in CBC"}/>
-//         </div>
-//     )
-// }
 
 export default About;

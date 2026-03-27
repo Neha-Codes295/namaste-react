@@ -628,7 +628,7 @@ const Grocery = lazy(() => import("./components/Grocery"));
 
 const AppLayout = () => {
     return (
-        <div className="app">
+        <div className="app min-h-screen bg-gradient-to-b from-stone-50 via-orange-50/35 to-amber-50/40 font-sans">
             <Header />
             <Outlet />
             {/* Outlet will be filled with the child acc to the path */}
@@ -666,7 +666,13 @@ const appRouter = createBrowserRouter([
                 path: "/grocery",
                 element:
                     <Suspense
-                        fallback={<h1>Loading...</h1>}>
+                        fallback={
+                            <div className="flex min-h-[40vh] items-center justify-center px-4">
+                                <p className="rounded-full bg-white/80 px-6 py-3 text-sm font-medium text-orange-700 shadow-md ring-1 ring-orange-100">
+                                    Loading grocery…
+                                </p>
+                            </div>
+                        }>
                         <Grocery />
                     </Suspense>,
                 // slow 3g network pe check kro , shows loading first then grocery

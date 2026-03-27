@@ -6,7 +6,7 @@ const useRestaurantMenu = (resId) =>{
 
     useEffect(()=>{
         fetchData();
-    },[]);
+    },[resId]);
 
     const fetchData = async ()=>{
         // failing due to cors error
