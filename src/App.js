@@ -310,7 +310,7 @@
 // Body: search, RestaurantContainer(RestaurantCard: img, name of res, star, rating, cuisine, delivery time)
 // Footer: copyright, links, address, contact
 
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header"; // import -> no need of extension, keep it simple
 import Body from "./components/Body";
@@ -319,6 +319,8 @@ import Contact from "./components/Contact";
 import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router";
+import UserContext from "./utils.js/UserContext";
+import { CartProvider } from "./utils.js/CartContext";
 // import Grocery from "./components/Grocery";// don't do it 
 
 // const Header = () => {
@@ -627,19 +629,27 @@ const Grocery = lazy(() => import("./components/Grocery"));
 // import via lazy fxn, which comes from react lib, it takes a callbakc fxn, the callback fxn uses import, import takes grocery comp path 
 
 const AppLayout = () => {
+    const [userName, setuserName] = useState();
+
+    // authentication
+    useEffect(()=>{
+        // make api call  and sned username & pswd
+        const data = {
+            name: "Naina",
+        };
+        setuserName(data.name);
+    },[])
+
     return (
-        <div className="app min-h-screen bg-gradient-to-b from-stone-50 via-orange-50/35 to-amber-50/40 font-sans">
+        <CartProvider>
+        <UserContext.Provider value={{loggedInUser: userName}}>
+        <div className="app min-h-screen bg-gray-50">
             <Header />
             <Outlet />
             {/* Outlet will be filled with the child acc to the path */}
         </div>
-        // {/* if path is "/" */}
-        // <Body />
-        // {/* if path is "/" */}
-        // <About />
-        // {/* if path is "/" */}
-        // <Contact />
-        // {/* pushing children here acc to route */}
+        </UserContext.Provider>
+        </CartProvider>
     )
 }
 
@@ -667,8 +677,8 @@ const appRouter = createBrowserRouter([
                 element:
                     <Suspense
                         fallback={
-                            <div className="flex min-h-[40vh] items-center justify-center px-4">
-                                <p className="rounded-full bg-white/80 px-6 py-3 text-sm font-medium text-orange-700 shadow-md ring-1 ring-orange-100">
+                            <div className="flex min-h-[40vh] items-center justify-center p-4">
+                                <p className="rounded-lg bg-white px-6 py-3 text-sm text-gray-600 shadow">
                                     Loading grocery…
                                 </p>
                             </div>

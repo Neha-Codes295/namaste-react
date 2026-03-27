@@ -33,16 +33,16 @@ class UserClass extends React.Component {
         console.log(`Render - ${this.props.name}`);
         const { name, location, avatar_url } = this.state.userInfo;
         return (
-            <div className="user-card flex flex-col items-center gap-6 text-center sm:flex-row sm:text-left">
+            <div className="user-card flex flex-col sm:flex-row items-center gap-6 text-center sm:text-left">
                 <img
                     src={avatar_url}
                     alt={name || "Profile"}
-                    className="h-28 w-28 shrink-0 rounded-2xl object-cover ring-4 ring-orange-100 shadow-md"
+                    className="h-28 w-28 rounded-xl object-cover border border-gray-200 shadow"
                 />
-                <div className="min-w-0 flex-1">
-                    <h2 className="text-2xl font-bold text-stone-900">{name}</h2>
-                    <p className="mt-1 text-stone-600">{location}</p>
-                    <p className="mt-4 text-sm font-medium text-orange-700">
+                <div className="min-w-0">
+                    <h2 className="text-xl font-bold text-gray-900">{name}</h2>
+                    <p className="text-gray-600 mt-1">📍 {location}</p>
+                    <p className="mt-4 inline-block bg-orange-500 text-white text-sm px-4 py-2 rounded-lg">
                         Contact: CallNeha
                     </p>
                 </div>

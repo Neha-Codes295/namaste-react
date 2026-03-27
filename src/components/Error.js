@@ -5,22 +5,22 @@ const Error = () => {
     console.log(err);
 
     return (
-        <div className="flex min-h-[60vh] flex-col items-center justify-center px-4 py-16">
-            <div className="max-w-md text-center">
-                <p className="text-6xl font-black text-orange-200">oops</p>
-                <h1 className="mt-4 text-2xl font-bold text-stone-900 sm:text-3xl">
+        <div className="min-h-[50vh] flex items-center justify-center p-6">
+            <div className="text-center max-w-md">
+                <p className="text-4xl text-orange-300 font-bold mb-4">oops</p>
+                <h1 className="text-2xl font-bold text-gray-900">
                     Something went wrong
                 </h1>
-                <p className="mt-2 text-stone-600">
+                <p className="text-gray-600 mt-2">
                     {err?.status != null && (
-                        <span className="font-mono text-sm text-stone-500">
+                        <span className="font-mono text-sm bg-gray-100 px-2 py-1 rounded">
                             {err.status} {err.statusText}
                         </span>
                     )}
                 </p>
                 <Link
                     to="/"
-                    className="mt-8 inline-flex rounded-full bg-orange-600 px-8 py-3 font-semibold text-white shadow-md transition hover:bg-orange-700"
+                    className="inline-block mt-6 bg-orange-500 text-white px-6 py-2 rounded-lg text-sm font-medium hover:bg-orange-600"
                 >
                     Back to home
                 </Link>

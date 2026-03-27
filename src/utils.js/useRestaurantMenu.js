@@ -1,23 +1,16 @@
-import { useEffect, useState } from "react";
-import { MENU_URL } from "./constants";
+import { useMemo } from "react";
+import dummyMenu from "./dummyRestaurantMenu.json";
 
-const useRestaurantMenu = (resId) =>{
-    const [resInfo, setResInfo] = useState(null);
-
-    useEffect(()=>{
-        fetchData();
-    },[resId]);
-
-    const fetchData = async ()=>{
-        // failing due to cors error
-        // but this is a good way of writing code 
-        const data  = await fetch(MENU_URL + resId);
-        const json = await data.json();
-        setResInfo(json.data);
-    }
-
-    return resInfo;
-
-}
+const useRestaurantMenu = (resId) => {
+    return useMemo(() => {
+        return {
+            ...dummyMenu,
+            info: {
+                ...dummyMenu.info,
+                id: resId != null ? String(resId) : dummyMenu.info.id,
+            },
+        };
+    }, [resId]);
+};
 
 export default useRestaurantMenu;

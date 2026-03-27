@@ -1,4 +1,4 @@
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, { withPromotedLabel } from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router";
@@ -9,7 +9,9 @@ const Body = () => {
     const [filteredList, setFilteredList] = useState([]);
     const [searchText, setSearchText] = useState("");
 
-    console.log("body rendered");
+    const PromotedRestaurantCard = withPromotedLabel(RestaurantCard);
+
+    console.log("body rendered", listOfRests);
 
     useEffect(() => {
         fetchData();
@@ -34,13 +36,13 @@ const Body = () => {
 
     if (!onlineStatus) {
         return (
-            <div className="mx-auto max-w-lg px-4 py-16 text-center">
-                <div className="rounded-2xl border border-rose-100 bg-white p-8 shadow-lg ring-1 ring-rose-50">
+            <div className="p-6 max-w-lg mx-auto text-center">
+                <div className="p-8 bg-white rounded-xl shadow">
                     <p className="text-4xl mb-3">📡</p>
-                    <h1 className="text-xl font-semibold text-stone-900">
+                    <h1 className="text-xl font-bold text-gray-900">
                         You&apos;re offline
                     </h1>
-                    <p className="mt-2 text-stone-600">
+                    <p className="text-gray-600 mt-2">
                         Check your internet connection and try again.
                     </p>
                 </div>
@@ -51,23 +53,22 @@ const Body = () => {
     return listOfRests.length === 0 ? (
         <Shimmer />
     ) : (
-        <main className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-            <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-                <div>
-                    <h1 className="text-2xl font-bold tracking-tight text-stone-900 sm:text-3xl">
-                        Desserts near you
-                    </h1>
-                    <p className="mt-1 text-stone-600">
-                        Search restaurants or filter by top ratings
-                    </p>
-                </div>
+        <main className="p-6 max-w-7xl mx-auto">
+            <div className="mb-6">
+                <p className="text-sm text-orange-600">Order fresh</p>
+                <h1 className="text-2xl font-bold text-gray-900 mt-1">
+                    Desserts near you
+                </h1>
+                <p className="text-gray-600 mt-2">
+                    Search restaurants or filter by top ratings
+                </p>
             </div>
 
-            <div className="filter mb-8 flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center">
-                <div className="search flex w-full max-w-xl flex-1 flex-col gap-2 sm:flex-row sm:items-stretch">
+            <div className="filter mb-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
+                <div className="search flex flex-1 flex-col gap-2 sm:flex-row sm:max-w-xl">
                     <input
                         type="text"
-                        className="search-box flex-1 rounded-xl border border-stone-200 bg-white px-4 py-3 text-stone-800 shadow-sm outline-none ring-orange-100 transition placeholder:text-stone-400 focus:border-orange-300 focus:ring-2"
+                        className="search-box flex-1 border border-gray-200 rounded-lg px-3 py-2 text-gray-900 min-w-0"
                         placeholder="Search restaurants…"
                         value={searchText}
                         onChange={(e) => {
@@ -76,7 +77,7 @@ const Body = () => {
                     />
                     <button
                         type="button"
-                        className="rounded-xl bg-orange-600 px-6 py-3 font-semibold text-white shadow-md transition hover:bg-orange-700"
+                        className="bg-orange-500 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-orange-600"
                         onClick={() => {
                             console.log(searchText);
                             const filteredRestList = listOfRests.filter((res) =>
@@ -92,7 +93,7 @@ const Body = () => {
                 </div>
                 <button
                     type="button"
-                    className="filter-btn inline-flex items-center justify-center rounded-xl border border-amber-200 bg-amber-50 px-5 py-3 text-sm font-semibold text-amber-900 shadow-sm transition hover:bg-amber-100"
+                    className="filter-btn border border-gray-200 px-4 py-2 rounded-lg text-sm bg-white hover:bg-gray-50"
                     onClick={() => {
                         const filteredRests = listOfRests.filter(
                             (res) => res.info.avgRating > 4.5
@@ -105,18 +106,26 @@ const Body = () => {
             </div>
 
             {filteredList.length === 0 ? (
-                <p className="rounded-xl border border-stone-200 bg-white py-12 text-center text-stone-500">
+                <p className="py-12 text-center text-gray-500 border border-dashed border-gray-200 rounded-xl">
                     No restaurants match your search. Try a different name.
                 </p>
             ) : (
-                <div className="res-container grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                <div className="res-container grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 items-stretch">
                     {filteredList.map((restaurant) => (
                         <Link
                             key={restaurant.info.id}
                             to={"/restaurant/" + restaurant.info.id}
-                            className="block no-underline"
+                            className="flex h-full min-h-0 rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-400"
                         >
-                            <RestaurantCard resData={restaurant} />
+                            {/* if rest is promoted, then add a promoted label to it 
+                            for it make RestaurantCard to be HOC */}
+                            {
+                                restaurant.info.promoted ? (
+                                    <PromotedRestaurantCard resData={restaurant} />
+                                ) : (
+                                    <RestaurantCard resData={restaurant} />
+                                )
+                            }
                         </Link>
                     ))}
                 </div>

@@ -1,64 +1,63 @@
 const Contact = () => {
     return (
-        <div className="mx-auto max-w-2xl px-4 py-12 sm:px-6 lg:px-8">
-            <div className="text-center">
-                <h1 className="text-3xl font-bold tracking-tight text-stone-900 sm:text-4xl">
-                    Contact us
-                </h1>
-                <p className="mt-3 text-stone-600">
+        <div className="p-6 max-w-2xl mx-auto">
+            <div className="text-center mb-8">
+                <p className="text-sm text-gray-500">Get in touch</p>
+                <h1 className="text-2xl font-bold text-gray-900 mt-1">Contact us</h1>
+                <p className="text-gray-600 mt-2">
                     We&apos;d love to hear from you. Send a message and we&apos;ll
                     respond soon.
                 </p>
             </div>
             <form
-                className="mt-10 space-y-6 rounded-2xl border border-stone-100 bg-white p-8 shadow-lg ring-1 ring-orange-50"
+                className="p-5 bg-white rounded-xl shadow space-y-5"
                 onSubmit={(e) => e.preventDefault()}
             >
                 <div>
                     <label
                         htmlFor="name"
-                        className="block text-sm font-medium text-stone-700"
+                        className="block text-sm font-medium text-gray-700"
                     >
                         Name
                     </label>
                     <input
                         id="name"
                         type="text"
-                        className="mt-1 w-full rounded-xl border border-stone-200 px-4 py-3 text-stone-800 shadow-sm outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100"
+                        className="mt-1 w-full border border-gray-200 rounded-lg px-3 py-2"
                         placeholder="Your name"
                     />
                 </div>
                 <div>
                     <label
                         htmlFor="email"
-                        className="block text-sm font-medium text-stone-700"
+                        className="block text-sm font-medium text-gray-700"
                     >
                         Email
                     </label>
                     <input
                         id="email"
                         type="email"
-                        className="mt-1 w-full rounded-xl border border-stone-200 px-4 py-3 text-stone-800 shadow-sm outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100"
+                        className="mt-1 w-full border border-gray-200 rounded-lg px-3 py-2"
                         placeholder="you@example.com"
                     />
                 </div>
                 <div>
                     <label
                         htmlFor="msg"
-                        className="block text-sm font-medium text-stone-700"
+                        className="block text-sm font-medium text-gray-700"
                     >
                         Message
                     </label>
                     <textarea
                         id="msg"
                         rows={4}
-                        className="mt-1 w-full resize-y rounded-xl border border-stone-200 px-4 py-3 text-stone-800 shadow-sm outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100"
+                        className="mt-1 w-full border border-gray-200 rounded-lg px-3 py-2 resize-y"
                         placeholder="How can we help?"
                     />
                 </div>
                 <button
                     type="submit"
-                    className="w-full rounded-xl bg-gradient-to-r from-orange-500 to-amber-500 py-3 font-semibold text-white shadow-md transition hover:from-orange-600 hover:to-amber-600 sm:w-auto sm:px-10"
+                    className="w-full sm:w-auto bg-orange-500 text-white px-6 py-2 rounded-lg text-sm font-medium hover:bg-orange-600"
                 >
                     Send message
                 </button>

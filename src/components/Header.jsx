@@ -1,7 +1,9 @@
 import { LOGO_URL } from "../utils.js/constants";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router";
 import useOnlineStatus from "../utils.js/useOnlineStatus";
+import UserContext from "../utils.js/UserContext";
+import { useCart } from "../utils.js/CartContext";
 
 const Header = () => {
   const [btnNameReact, setBtnNameReact] = useState("Login");
@@ -9,23 +11,26 @@ const Header = () => {
 
   const onlineStatus = useOnlineStatus();
 
+  const { loggedInUser } = useContext(UserContext);
+  const { cartCount } = useCart();
+
   useEffect(() => {
     console.log("useEffect called");
   }, [btnNameReact]);
 
   const linkClass =
-    "rounded-lg px-3 py-2 text-sm font-medium text-stone-600 transition hover:bg-orange-50 hover:text-orange-700";
+    "px-3 py-2 text-sm text-gray-600 rounded-lg hover:bg-gray-100";
 
   return (
-    <header className="sticky top-0 z-50 border-b border-orange-100/80 bg-white/90 shadow-sm backdrop-blur-md">
-      <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
-        <Link to="/" className="flex shrink-0 items-center gap-2 no-underline">
+    <header className="sticky top-0 z-50 border-b bg-white shadow-sm">
+      <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-4 px-4 py-3">
+        <Link to="/" className="flex items-center gap-2 no-underline">
           <img
-            className="h-12 w-auto rounded-lg object-contain ring-2 ring-orange-100 sm:h-14"
+            className="h-12 w-auto rounded-lg object-contain sm:h-14"
             src={LOGO_URL}
             alt="Food app logo"
           />
-          <span className="hidden bg-gradient-to-r from-orange-600 to-amber-600 bg-clip-text text-xl font-bold text-transparent sm:inline">
+          <span className="hidden text-xl font-bold text-orange-600 sm:inline">
             Namaste Food
           </span>
         </Link>
@@ -34,10 +39,10 @@ const Header = () => {
           <ul className="flex flex-wrap items-center gap-1 sm:gap-2">
             <li>
               <span
-                className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-semibold shadow-sm ${
+                className={`text-xs px-2 py-1 rounded-full ${
                   onlineStatus
-                    ? "bg-emerald-50 text-emerald-800 ring-1 ring-emerald-200"
-                    : "bg-rose-50 text-rose-800 ring-1 ring-rose-200"
+                    ? "bg-green-100 text-green-800"
+                    : "bg-red-100 text-red-800"
                 }`}
               >
                 {onlineStatus ? "🟢 Online" : "🔴 Offline"}
@@ -63,10 +68,21 @@ const Header = () => {
                 Grocery
               </Link>
             </li>
+            <li>
+              <span
+                className={`${linkClass} inline-flex items-center gap-1 cursor-default`}
+                aria-label={`Cart, ${cartCount} items`}
+              >
+                🛒 Cart
+                <span className="bg-orange-500 text-white text-xs min-w-[1.25rem] px-1.5 py-0.5 rounded-full text-center">
+                  {cartCount}
+                </span>
+              </span>
+            </li>
             <li className="pl-1">
               <button
                 type="button"
-                className="rounded-full bg-gradient-to-r from-orange-500 to-amber-500 px-5 py-2 text-sm font-semibold text-white shadow-md transition hover:from-orange-600 hover:to-amber-600 hover:shadow-lg"
+                className="bg-orange-500 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-orange-600"
                 onClick={() => {
                   btnNameReact === "Login"
                     ? setBtnNameReact("Logout")
@@ -76,6 +92,7 @@ const Header = () => {
               >
                 {btnNameReact}
               </button>
+              <span className="ml-2 text-sm text-gray-700">{loggedInUser}</span>
             </li>
           </ul>
         </nav>

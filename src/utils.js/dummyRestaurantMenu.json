@@ -1,0 +1,133 @@
+{
+  "info": {
+    "id": "1",
+    "name": "Down Town Restro",
+    "cuisines": ["North Indian", "Chinese", "Fast Food"],
+    "rating": 4.2,
+    "totalRatings": 1801,
+    "costForTwo": "₹400 for two",
+    "deliveryTime": "25 mins",
+    "address": "Nangal, Punjab",
+    "image": "https://images.unsplash.com/photo-1600891964599-f61ba0e24092"
+  },
+
+  "sections": [
+    {
+      "title": "🔥 Best Sellers",
+      "items": [
+        {
+          "id": "101",
+          "name": "Kadai Paneer with Butter Naan",
+          "price": 299,
+          "description": "Spicy paneer curry served with naan",
+          "image": "https://images.unsplash.com/photo-1604908176997-431b9b6d4a76",
+          "isBestSeller": true,
+          "isVeg": true,
+          "rating": 4.5
+        },
+        {
+          "id": "102",
+          "name": "Chicken Biryani",
+          "price": 349,
+          "description": "Aromatic rice with chicken",
+          "image": "https://images.unsplash.com/photo-1604908177522-3e3a1a996a96",
+          "isBestSeller": true,
+          "isVeg": false,
+          "rating": 4.6
+        }
+      ]
+    },
+
+    {
+      "title": "🆕 Newly Added",
+      "items": [
+        {
+          "id": "103",
+          "name": "Paneer Tikka Pizza",
+          "price": 259,
+          "description": "Fusion pizza with paneer topping",
+          "image": "https://images.unsplash.com/photo-1594007654729-407eedc4be65",
+          "isNew": true,
+          "isVeg": true,
+          "rating": 4.3
+        },
+        {
+          "id": "104",
+          "name": "Veg Momos",
+          "price": 149,
+          "description": "Steamed dumplings",
+          "image": "https://images.unsplash.com/photo-1625944525533-473f1c9d54ff",
+          "isNew": true,
+          "isVeg": true,
+          "rating": 4.2
+        }
+      ]
+    },
+
+    {
+      "title": "🍽️ Main Course",
+      "items": [
+        {
+          "id": "105",
+          "name": "Dal Makhani",
+          "price": 199,
+          "description": "Creamy black lentils",
+          "image": "https://images.unsplash.com/photo-1625944525900-8f9b92f5c2e2",
+          "isVeg": true,
+          "rating": 4.4
+        },
+        {
+          "id": "106",
+          "name": "Butter Chicken",
+          "price": 329,
+          "description": "Rich creamy chicken curry",
+          "image": "https://images.unsplash.com/photo-1604908176997-431b9b6d4a76",
+          "isVeg": false,
+          "rating": 4.6
+        }
+      ]
+    },
+
+    {
+      "title": "🍟 Snacks",
+      "items": [
+        {
+          "id": "107",
+          "name": "French Fries",
+          "price": 99,
+          "description": "Crispy potato fries",
+          "image": "https://images.unsplash.com/photo-1571091718767-18b5b1457add",
+          "isVeg": true,
+          "rating": 4.1
+        },
+        {
+          "id": "108",
+          "name": "Chicken Nuggets",
+          "price": 149,
+          "description": "Crispy fried nuggets",
+          "image": "https://images.unsplash.com/photo-1604908177522-3e3a1a996a96",
+          "isVeg": false,
+          "rating": 4.3
+        }
+      ]
+    }
+  ],
+
+  "reviews": [
+    {
+      "user": "Neha",
+      "rating": 5,
+      "comment": "Amazing food and quick delivery!"
+    },
+    {
+      "user": "Ansh",
+      "rating": 4,
+      "comment": "Taste was great, packaging could improve."
+    },
+    {
+      "user": "Tiku",
+      "rating": 5,
+      "comment": "Best restaurant in Nangal!"
+    }
+  ]
+}
