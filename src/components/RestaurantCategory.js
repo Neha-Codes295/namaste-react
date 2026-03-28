@@ -1,9 +1,18 @@
 import { useState } from "react";
-import { useCart } from "../utils.js/CartContext";
+import { useDispatch } from "react-redux";
+import { addItem } from "../utils.js/cartSlice";
+// import { useCart } from "../utils.js/CartContext";
 
 const RestaurantCategory = ({ data }) => {
     const [open, setOpen] = useState(false);
-    const { addToCart } = useCart();
+    // const { addToCart } = useCart();
+
+    const dispatch = useDispatch();
+
+    const handleAddItem= (item)  =>{
+        // dispatch an action
+        dispatch(addItem(item));
+    }
 
     return (
         <div className="mb-4 border rounded-xl bg-white shadow overflow-hidden">
@@ -37,7 +46,9 @@ const RestaurantCategory = ({ data }) => {
                                 <button
                                     type="button"
                                     className="absolute bottom-1.5 left-1.5 right-1.5 bg-orange-500 text-white text-xs py-1.5 rounded font-medium hover:bg-orange-600"
-                                    onClick={() => addToCart(item)}
+                                    // onClick={() => addToCart(item)}
+                                    onClick={() => handleAddItem(item)}
+                                
                                 >
                                     Add to cart
                                 </button>

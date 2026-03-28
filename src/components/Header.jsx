@@ -3,7 +3,8 @@ import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router";
 import useOnlineStatus from "../utils.js/useOnlineStatus";
 import UserContext from "../utils.js/UserContext";
-import { useCart } from "../utils.js/CartContext";
+// import { useCart } from "../utils.js/CartContext";
+import { useSelector } from "react-redux";
 
 const Header = () => {
   const [btnNameReact, setBtnNameReact] = useState("Login");
@@ -12,7 +13,15 @@ const Header = () => {
   const onlineStatus = useOnlineStatus();
 
   const { loggedInUser } = useContext(UserContext);
-  const { cartCount } = useCart();
+  // const { cartCount } = useCart();
+
+  // subscribing to store using selector
+  const cartItems = useSelector((store) => store.cart.items);
+  const cartCount = cartItems.reduce(
+    (n, item) => n + (item?.quantity ?? 1),
+    0
+  );
+  console.log("New", cartItems);
 
   useEffect(() => {
     console.log("useEffect called");
@@ -69,15 +78,16 @@ const Header = () => {
               </Link>
             </li>
             <li>
-              <span
-                className={`${linkClass} inline-flex items-center gap-1 cursor-default`}
+              <Link
+                className={`${linkClass} inline-flex items-center gap-1`}
+                to="/cart"
                 aria-label={`Cart, ${cartCount} items`}
               >
                 🛒 Cart
                 <span className="bg-orange-500 text-white text-xs min-w-[1.25rem] px-1.5 py-0.5 rounded-full text-center">
                   {cartCount}
                 </span>
-              </span>
+              </Link>
             </li>
             <li className="pl-1">
               <button

@@ -31,3 +31,13 @@ File Structure
 # 2 Type of exports
 - default-single export, import simple
 - named-multiple export, import with {}
+
+
+
+# Redux ToolKit
+- install redux toolkit & react-redux
+- build our own store
+- connect store to our app 
+- create slice(cartSlice)
+- dispatch(action)
+- selector

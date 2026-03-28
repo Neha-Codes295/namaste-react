@@ -318,9 +318,13 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
+import Cart from "./components/Cart";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router";
 import UserContext from "./utils.js/UserContext";
 import { CartProvider } from "./utils.js/CartContext";
+
+import { Provider } from "react-redux";
+import appStore from "./utils.js/appStore";
 // import Grocery from "./components/Grocery";// don't do it 
 
 // const Header = () => {
@@ -641,7 +645,7 @@ const AppLayout = () => {
     },[])
 
     return (
-        <CartProvider>
+        <Provider store={appStore}>
         <UserContext.Provider value={{loggedInUser: userName}}>
         <div className="app min-h-screen bg-gray-50">
             <Header />
@@ -649,7 +653,7 @@ const AppLayout = () => {
             {/* Outlet will be filled with the child acc to the path */}
         </div>
         </UserContext.Provider>
-        </CartProvider>
+        </Provider>
     )
 }
 
@@ -671,6 +675,10 @@ const appRouter = createBrowserRouter([
             {
                 path: "/contact",
                 element: <Contact />,
+            },
+            {
+                path: "/cart",
+                element: <Cart />,
             },
             {
                 path: "/grocery",
